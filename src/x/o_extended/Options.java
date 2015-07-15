@@ -1,12 +1,20 @@
 package x.o_extended;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 public class Options extends javax.swing.JPanel {
+    private JButton newGame;
+    private JLabel player1;
+    private JLabel player2;
+    private JButton reset;
+    private static JLabel result;
     static Fields naziv;
     static int scorePlayer1 = 0;
     static int scorePlayer2 = 0;
-    public Options(final Fields ime) {
+    public Options(final Fields ime, String player1, String player2) {
         naziv = ime;
-        initComponents();
+        initComponents(player1, player2);
     }
     public static void Result(boolean player){
         if(player)
@@ -19,19 +27,13 @@ public class Options extends javax.swing.JPanel {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
-    private void initComponents() {
+    private void initComponents(String playe1, String playe2) {
 
-        player1 = new javax.swing.JLabel();
-        result = new javax.swing.JLabel();
-        player2 = new javax.swing.JLabel();
+        player1 = new JLabel(playe1);
+        result = new javax.swing.JLabel("0:0");
+        player2 = new javax.swing.JLabel(playe2);
         reset = new javax.swing.JButton();
         newGame = new javax.swing.JButton();
-
-        player1.setText("1");
-
-        result.setText("0:0");
-
-        player2.setText("2");
 
         reset.setText("Reset");
         reset.addActionListener(new java.awt.event.ActionListener() {
@@ -85,12 +87,4 @@ public class Options extends javax.swing.JPanel {
         result.setText("0:0");
     }                                       
 
-
-    // Variables declaration - do not modify                     
-    private javax.swing.JButton newGame;
-    private javax.swing.JLabel player1;
-    private javax.swing.JLabel player2;
-    private javax.swing.JButton reset;
-    private static javax.swing.JLabel result;
-    // End of variables declaration                   
 }

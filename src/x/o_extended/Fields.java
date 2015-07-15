@@ -31,8 +31,8 @@ public class Fields extends JPanel implements ActionListener {
     }
     
 
-    public Fields() {
-        Size = 12;
+    public Fields(int size) {
+        Size = size;
         X_O =  new JButton[Size][Size];
         finished = false;
         generateFields();
@@ -56,10 +56,10 @@ public class Fields extends JPanel implements ActionListener {
         for (int i = 0; i < Size; i++) {
             for (int j = 0; j < Size; j++) {
                 X_O[i][j] = new JButton(" ");
-                X_O[i][j].setBounds((width) / (Size) * j + (6),
-                        (height) / (Size) * i + (6),
-                        width / (Size) - (6),
-                        (height) / (Size) - (6));
+                X_O[i][j].setBounds(width/ (Size) * j + 6,
+                        (height) / (Size) * i + 6,
+                        width / (Size) - 6,
+                        (height) / (Size) - 6);
                 X_O[i][j].setVisible(true);
                 X_O[i][j].setEnabled(true);
                 X_O[i][j].setFocusable(false);
