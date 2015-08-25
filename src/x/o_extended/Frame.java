@@ -22,8 +22,8 @@ public class Frame extends JFrame{
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        MainPanel panel = new MainPanel();
-        panel.setVisible(true);
-        getContentPane().add(panel);            
+        NewGame igra = new NewGame(this);
+        igra.setVisible(true);
+        igra.setLocationRelativeTo(this);        
     }
 }
