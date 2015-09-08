@@ -6,10 +6,7 @@ import javax.swing.JOptionPane;
 public class NewGame extends JFrame {
     Frame frame;
     JFrame errorFrame;
-    public NewGame(Frame temp) {
-        frame = temp;
-        frame.setVisible(false);
-        temp.dispose();
+    public NewGame() {
         initComponents();
         gameSize.setValue(8);
         errorFrame = new JFrame();
@@ -98,56 +95,56 @@ public class NewGame extends JFrame {
             gameSize.grabFocus();
         }
         else{
-        String sizeString = gameSize.getValue().toString();
-        int size = 1;
-        boolean isNumber = false;
-        for(int i = 0; i < gameSize.getValue().toString().length(); i++)
-            if(gameSize.getValue().toString().charAt(i) >= '0' && gameSize.getValue().toString().charAt(i) <= '9'){
-                isNumber = true;
+            String sizeString = gameSize.getValue().toString();
+            int size = 1;
+            boolean isNumber = false;
+            for(int i = 0; i < gameSize.getValue().toString().length(); i++)
+                if(gameSize.getValue().toString().charAt(i) >= '0' && gameSize.getValue().toString().charAt(i) <= '9'){
+                    isNumber = true;
+                }
+                else{
+                    isNumber = false;
+                    break;
+                }
+            if(isNumber){
+                size = Integer.parseInt(gameSize.getValue().toString());
+            }
+            if(!isNumber){
+                errorFrame.setVisible(true);
+                JOptionPane.showMessageDialog(errorFrame, "Insert number for game size");
+                errorFrame.setVisible(false);
+                gameSize.grabFocus();
+            }
+            else if(player1name.getText().isEmpty())
+            {
+                errorFrame.setVisible(true);
+                JOptionPane.showMessageDialog(errorFrame, "Insert player 1 name");
+                errorFrame.setVisible(false);
+                player1name.grabFocus();
+            }
+            else if(player2name.getText().isEmpty())
+            {
+                errorFrame.setVisible(true);
+                JOptionPane.showMessageDialog(errorFrame, "Insert player 2 name");
+                errorFrame.setVisible(false);
+                player2name.grabFocus();
+            }
+            else if(size < 9 || size > 15){
+                errorFrame.setVisible(true);
+                JOptionPane.showMessageDialog(errorFrame, "Game size is number between 9-15");
+                errorFrame.setVisible(false);
+                gameSize.grabFocus();
             }
             else{
-                isNumber = false;
-                break;
+                frame = new Frame();
+                MainPanel panel = new MainPanel(player1name.getText(), player2name.getText(), size);
+                panel.setVisible(true);
+                frame.getContentPane().add(panel);
+                frame.setVisible(true);
+                this.dispose();
+                frame.pack();
             }
-        if(isNumber){
-            size = Integer.parseInt(gameSize.getValue().toString());
-            System.out.println("isNumber");
         }
-        if(!isNumber){
-            errorFrame.setVisible(true);
-            JOptionPane.showMessageDialog(errorFrame, "Insert number for game size");
-            errorFrame.setVisible(false);
-            gameSize.grabFocus();
-        }
-        else if(player1name.getText().isEmpty())
-        {
-            errorFrame.setVisible(true);
-            JOptionPane.showMessageDialog(errorFrame, "Insert player 1 name");
-            errorFrame.setVisible(false);
-            player1name.grabFocus();
-        }
-        else if(player2name.getText().isEmpty())
-        {
-            errorFrame.setVisible(true);
-            JOptionPane.showMessageDialog(errorFrame, "Insert player 2 name");
-            errorFrame.setVisible(false);
-            player2name.grabFocus();
-        }
-        else if(size < 9 || size > 15){
-            errorFrame.setVisible(true);
-            JOptionPane.showMessageDialog(errorFrame, "Game size is number between 9-15");
-            errorFrame.setVisible(false);
-            gameSize.grabFocus();
-        }
-        else{
-            MainPanel panel = new MainPanel(player1name.getText(), player2name.getText(), size);
-            panel.setVisible(true);
-            frame = new Frame();
-            frame.getContentPane().add(panel);
-            frame.setVisible(true);
-            this.dispose();
-            frame.pack();
-        }}
     }//GEN-LAST:event_buttonActionPerformed
 
 

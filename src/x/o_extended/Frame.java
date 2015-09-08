@@ -9,7 +9,7 @@ public class Frame extends JFrame{
     public static int getHight() {
         return Height;
     }
-
+    
     public static int getWIdth() {
         return Width;
     }
@@ -17,13 +17,9 @@ public class Frame extends JFrame{
     public Frame() {
         setSize(Width, Height);
         
-        System.out.println("" + Width + " i " + Height);
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        NewGame igra = new NewGame(this);
-        igra.setVisible(true);
-        igra.setLocationRelativeTo(this);        
     }
 }

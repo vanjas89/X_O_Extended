@@ -99,18 +99,14 @@ public class Fields extends JPanel implements ActionListener {
                 && counter < 5) {
             if(X_O[index1 + directionX][index2+directionY].getText().equals(Char)){
                 counter++;
-                
-                System.out.println(index1 + " " + index2);
             }
             else
             {
-                System.out.println(X_O[index1 + directionX][index2+directionY].getText()+ "-" +(Char));
                 break;
             }
             index1+=directionX;
             index2+=directionY;
         }
-        System.out.println("Count " + counter);
                 
         return counter;
     }
@@ -120,7 +116,6 @@ public class Fields extends JPanel implements ActionListener {
         String subString = e.toString().substring(substringIndex + 4);
         i = Integer.parseInt(subString.substring(0, subString.indexOf(" ")));
         j = Integer.parseInt(subString.substring(subString.indexOf(" ")+1));
-        System.out.println(i + " index " + j);
         X_O[i][j].setText("" + ((PlayerNum)?("X"):("0")));
         X_O[i][j].setEnabled(false);
         if(isFinished(i, j, PlayerNum))

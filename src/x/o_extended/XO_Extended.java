@@ -4,8 +4,9 @@ public class XO_Extended {
 
     public static void main(String[] args) {
         
-        Frame frame = new Frame();
+        NewGame frame = new NewGame();
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
         frame.pack();
     }
     
