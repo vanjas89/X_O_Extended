@@ -3,7 +3,7 @@ package x.o_extended;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class NewGame extends javax.swing.JFrame {
+public class NewGame extends JFrame {
     Frame frame;
     JFrame errorFrame;
     public NewGame(Frame temp) {
@@ -118,7 +118,6 @@ public class NewGame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(errorFrame, "Insert number for game size");
             errorFrame.setVisible(false);
             gameSize.grabFocus();
-            //gameSize.setValue(9);
         }
         else if(player1name.getText().isEmpty())
         {
@@ -141,10 +140,9 @@ public class NewGame extends javax.swing.JFrame {
             gameSize.grabFocus();
         }
         else{
-            MainPanel panel = new MainPanel(player1name.getText(), player1name.getText(), gameSize.getValue().toString());
+            MainPanel panel = new MainPanel(player1name.getText(), player2name.getText(), size);
             panel.setVisible(true);
             frame = new Frame();
-            frame.setVisible(true);
             frame.getContentPane().add(panel);
             frame.setVisible(true);
             this.dispose();

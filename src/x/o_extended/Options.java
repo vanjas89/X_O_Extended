@@ -12,17 +12,30 @@ public class Options extends javax.swing.JPanel {
     static Fields naziv;
     static int scorePlayer1 = 0;
     static int scorePlayer2 = 0;
+    static String play1;
+    static String play2;
     public Options(final Fields ime, String player1, String player2) {
         naziv = ime;
+        play1 = player1;
+        play2 = player2;
         initComponents(player1, player2);
     }
+
+    public static String getPlay1() {
+        return play1;
+    }
+
+    public static String getPlay2() {
+        return play2;
+    }
+    
     public static void Result(boolean player){
         if(player)
-                scorePlayer1++;
-            else
-                scorePlayer2++;
-            naziv.Clear();
-            result.setText(scorePlayer1+":"+scorePlayer2);
+            scorePlayer1++;
+       else
+            scorePlayer2++;
+        naziv.Clear();
+        result.setText(scorePlayer1+":"+scorePlayer2);
     }
 
     @SuppressWarnings("unchecked")

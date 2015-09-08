@@ -50,7 +50,6 @@ public class Fields extends JPanel implements ActionListener {
     private void generateFields() {
         int width = Frame.getHight();
         int height = Frame.getWIdth() - 250;
-        System.out.println("" + width + " i " + height);
         setPreferredSize(new Dimension(width, height));
         setLayout(null);
         for (int i = 0; i < Size; i++) {
@@ -75,7 +74,7 @@ public class Fields extends JPanel implements ActionListener {
         int directionX;
         int directionY;
         
-        for(directionY = -1; directionY <1; directionY++)
+        for(directionY = -1; directionY < 1; directionY++)
         {
             for(directionX = -1; directionX < 1; directionX++)
             {
@@ -86,14 +85,9 @@ public class Fields extends JPanel implements ActionListener {
                            directionFuncion(-directionX, -directionY, i, j, ((finished)? ("X"):("0")));
                 
                 if(counter == line)
-                    break;
+                    return true;
             }
-            if(counter == line)
-                break;
         }
-        
-        if(counter == line)
-            return true;
         return false;
     }
     
@@ -131,7 +125,7 @@ public class Fields extends JPanel implements ActionListener {
         X_O[i][j].setEnabled(false);
         if(isFinished(i, j, PlayerNum))
         {
-            JOptionPane.showConfirmDialog(null, "POBJEDIO JE " + ((PlayerNum)?("X"):("0"))) ;
+            JOptionPane.showMessageDialog(null, "POBJEDIO JE " + ((PlayerNum)?(Options.getPlay1()):(Options.getPlay2()))) ;
             Options.Result(PlayerNum);
         }
         else
